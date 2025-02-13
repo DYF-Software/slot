@@ -60,7 +60,7 @@ function spinReels() {
 
 function checkWin() {
   const results = Array.from(reels).map((reel) => {
-    return reel.children[totalSymbols / 2].innerText;
+    return reel.children[15].innerText;
   });
 
   if (results[0] === results[1] && results[1] === results[2]) {
