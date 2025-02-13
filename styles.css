@@ -70,21 +70,24 @@ body {
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background: #ff0;
+    padding: 25px 30px; /* Butonu büyüttük */
+    font-size: 1.2rem; /* Yazıyı büyüttük */
+    background: transparent;
+    color: white;
+    font-weight: bold;
     border: none;
     cursor: pointer;
     margin-top: 10px;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
     transition: 0.2s;
     position: absolute;
-    top: 78%;
-    left: 50%;
+    top: calc(95% + 190px); /* Butonu daha aşağıya aldık */
+    left: calc(50% + 7px);
     transform: translate(-50%, -50%);
 }
 
 button:hover {
-    background: #ffc107;
+    background: transparent;
+    color: #ffd700; /* Hafif altın sarısı parlak bir efekt */
 }
