@@ -24,7 +24,6 @@ body {
 
 .slot-machine {
     position: absolute;
-    width: 50vw;
     max-width: 300px;
     top: 40%;
     left: 50%;
