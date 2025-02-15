@@ -46,7 +46,7 @@ body {
     overflow: hidden;
     background: transparent;
     border-radius: 5px;
-    margin: 0 6px;
+    margin: 0 15px;
     position: relative;
 }
 
@@ -82,7 +82,7 @@ button {
     box-shadow: none;
     transition: 0.2s;
     position: absolute;
-    top: calc(95% + 190px); /* Butonu daha aşağıya aldık */
+    top: calc(95% + 240px); /* Butonu daha aşağıya aldık */
     left: calc(50% + 7px);
     transform: translate(-50%, -50%);
 }
