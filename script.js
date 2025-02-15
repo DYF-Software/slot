@@ -8,6 +8,7 @@ function getRandomSymbols() {
   for (let i = 0; i < totalSymbols; i++) {
     randomSymbols.push(symbols[Math.floor(Math.random() * symbols.length)]);
   }
+  randomSymbols[5]="⭐";
   return randomSymbols;
 }
 
@@ -22,7 +23,6 @@ function createReelContent(reel) {
     reel.appendChild(slotDiv);
   });
 
-  // Başlangıçta içeriği aşağıya kaydır
   reel.style.transform = `translateY(-${reel.scrollHeight / 2}px)`;
 }
 
@@ -40,7 +40,7 @@ function spinReels() {
     createReelContent(reel);
   });
 
-  void reels[0].offsetHeight; // Render güncellemesi için
+  void reels[0].offsetHeight;
 
   let completedReels = 0;
   reels.forEach((reel) => {
@@ -53,9 +53,6 @@ function spinReels() {
     reel.addEventListener("transitionend", function onEnd() {
       reel.removeEventListener("transitionend", onEnd);
 
-      // Döngüyü tamamladıktan sonra tekrar başa al
-      //reel.style.transform = `translateY(-${reel.scrollHeight / 2}px)`;
-
       completedReels++;
       if (completedReels === reels.length) {
         spinButton.disabled = false;
@@ -67,7 +64,7 @@ function spinReels() {
 
 function checkWin() {
   const results = Array.from(reels).map((reel) => {
-    return reel.children[5].innerText; // Aşağıdan sayım yaparak uygun sırayı kontrol et
+    return reel.children[5].innerText;
   });
 
   if (results[0] === results[1] && results[1] === results[2]) {

@@ -25,7 +25,7 @@ body {
 .slot-machine {
     position: absolute;
     width: 50vw;
-    max-width: 600px;
+    max-width: 300px;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -38,6 +38,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    gap: 30px;
 }
 
 .reel-container {
@@ -70,8 +71,8 @@ body {
 }
 
 button {
-    padding: 25px 30px; /* Butonu büyüttük */
-    font-size: 1.2rem; /* Yazıyı büyüttük */
+    padding: 25px 30px;
+    font-size: 1.2rem;
     background: transparent;
     color: white;
     font-weight: bold;
@@ -82,12 +83,16 @@ button {
     box-shadow: none;
     transition: 0.2s;
     position: absolute;
-    top: calc(95% + 240px); /* Butonu daha aşağıya aldık */
+    top: calc(95% + 245px);
     left: calc(50% + 7px);
     transform: translate(-50%, -50%);
 }
 
 button:hover {
     background: transparent;
-    color: #ffd700; /* Hafif altın sarısı parlak bir efekt */
+    color: #ffd700;
+}
+
+button:active {
+    transform: translate(-50%, -50%) scale(0.9);
 }
