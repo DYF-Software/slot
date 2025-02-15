@@ -14,12 +14,16 @@ function getRandomSymbols() {
 function createReelContent(reel) {
   reel.innerHTML = "";
   let items = getRandomSymbols();
+
   items.forEach(symbol => {
     let slotDiv = document.createElement("div");
     slotDiv.classList.add("slot");
     slotDiv.innerText = symbol;
     reel.appendChild(slotDiv);
   });
+
+  // Başlangıçta içeriği aşağıya kaydır
+  reel.style.transform = `translateY(-${reel.scrollHeight / 2}px)`;
 }
 
 function setupReels() {
@@ -32,11 +36,11 @@ function spinReels() {
 
   reels.forEach((reel) => {
     reel.style.transition = "none";
-    reel.style.transform = "translateY(0)";
+    reel.style.transform = `translateY(-${reel.scrollHeight / 2}px)`;
     createReelContent(reel);
   });
 
-  void reels[0].offsetHeight;
+  void reels[0].offsetHeight; // Render güncellemesi için
 
   let completedReels = 0;
   reels.forEach((reel) => {
@@ -44,10 +48,13 @@ function spinReels() {
     let totalHeight = reel.scrollHeight;
 
     reel.style.transition = `transform ${moveDuration}s ease-out`;
-    reel.style.transform = `translateY(-${totalHeight / 2}px)`;
+    reel.style.transform = `translateY(0)`;
 
     reel.addEventListener("transitionend", function onEnd() {
       reel.removeEventListener("transitionend", onEnd);
+
+      // Döngüyü tamamladıktan sonra tekrar başa al
+      //reel.style.transform = `translateY(-${reel.scrollHeight / 2}px)`;
 
       completedReels++;
       if (completedReels === reels.length) {
@@ -60,7 +67,7 @@ function spinReels() {
 
 function checkWin() {
   const results = Array.from(reels).map((reel) => {
-    return reel.children[15].innerText;
+    return reel.children[5].innerText; // Aşağıdan sayım yaparak uygun sırayı kontrol et
   });
 
   if (results[0] === results[1] && results[1] === results[2]) {
